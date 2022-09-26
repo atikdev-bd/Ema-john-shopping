@@ -1,0 +1,18 @@
+.header-nav {
+  height: 80px;
+  background-color: #1c2b35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 140px;
+}
+.header-nav a {
+  font-size: large;
+  text-decoration: none;
+  margin-left: 30px;
+  color: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+}
+.header-nav a:hover {
+  color: goldenrod;
+}

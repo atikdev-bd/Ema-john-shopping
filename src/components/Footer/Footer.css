@@ -1,0 +1,22 @@
+.footer-container {
+    border-top:0;
+    border-radius: 5px;
+    display: flex;
+  margin-top: 50px;
+  width: 100%;
+  height: 200px;
+  background-color: #95a0a7;
+  justify-content: center;
+  align-items: center;
+  
+}
+.a-info a{
+    text-decoration: none;
+    margin: 40px;
+    color: #ffff;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.a-info a:hover{
+    color: black;
+}
