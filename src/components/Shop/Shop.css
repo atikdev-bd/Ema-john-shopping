@@ -1,8 +1,8 @@
-.products {
+.shop-container{
     display: grid;
     grid-template-columns: 4fr 1fr;
   }
-  .product-container{
+  .products-container{
     margin: auto;
     margin-top: 80px;
     display: grid;
@@ -15,4 +15,7 @@
     background-color:#FF99004D;
     ;
   }
-  
+  .pagination selected{
+    background-color: aqua;
+    color: black;
+  }
