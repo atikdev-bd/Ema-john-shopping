@@ -6,24 +6,23 @@ import "./Shop.css";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
   const [count, setCount] = useState(0);
-  const [page, setPage] = useState(0);
+  const [refresh, setRefresh] = useState(false);
+  const [page, setPage] = useState(0, refresh);
   const [size, setSize] = useState(10);
 
   const pages = Math.ceil(count / size);
 
-  console.log(pages);
-
-  console.log(count);
-  const [cart, setCart] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setCount(data.count);
+
         setProducts(data.result);
       });
-  }, []);
+  }, [page, size]);
 
   useEffect(() => {
     const storedCart = getStoredCart();
@@ -74,6 +73,7 @@ const Shop = () => {
 
       <div className="pagination mt-8 text-center">
         <h1 className="mb-4">current number : {page}</h1>
+        <h1>size : {size}</h1>
         {[...Array(pages).keys()].map((number) => (
           <button
             onClick={() => setPage(number)}
@@ -83,6 +83,18 @@ const Shop = () => {
             {number}
           </button>
         ))}
+        <select
+          className=" p-2 bg-teal-700 ml-2 text-black"
+          onSubmit={() => !refresh}
+          onChange={(e) => setSize(e.target.value)}
+        >
+          <option value="5">5</option>
+          <option defaultValue={23} value="10">
+            10
+          </option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
       </div>
     </div>
   );
